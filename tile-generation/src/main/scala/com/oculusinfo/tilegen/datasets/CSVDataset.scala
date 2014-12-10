@@ -454,8 +454,8 @@ abstract class CSVDatasetBase[IT: ClassTag,
 	override def getConsolidationPartitions: Option[Int] = consolidationPartitions
 
 	def getIndexScheme = indexer.indexScheme
-	def getValueScheme: ValueDescription[BT] = valuer
-	
+	def getTileSerializer: TileSerializer[BT] = valuer.getSerializer
+
 	def getBinningAnalytic: BinningAnalytic[PT, BT] = valuer.getBinningAnalytic
 
 	def getDataAnalytics: Option[AnalysisDescription[(IT, PT), DT]] = dataAnalytics
